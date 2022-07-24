@@ -42,7 +42,7 @@ void printList(LList* list) {
 		printf("\nEmpty");
 	}
 	else {
-	printf("Elements present in the Stack: \n");
+	printf("\nElements present in the Stack: \n");
 	while (np != NULL) {
 		printf(" %d\n", np->num);
 		np = np->next;
@@ -114,7 +114,7 @@ int peek(LList* list) {
 		printf("Empty");
 	}
 	else {
-		printf("The top element is %d", list->head->num);
+		printf("Top element(the next element to be removed) is %d", list->head->num);
 	}
 }
 
