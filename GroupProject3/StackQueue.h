@@ -77,49 +77,40 @@ void push(int value, LList* list) {
 	*/
 }
 
-//int  pop(LList list) {
-//	NodePtr prev;
-//	NodePtr curr;
-//	if (list.head == NULL) {
-//		//if the list is empty
-//		printf("empty");
-//	}
-//	else {
-//		printf("\nRemoved element : % d", list.tail->num);
-//		prev = list.head;
-//		curr = list.head->next;
-//		while (curr != NULL) {
-//			prev = curr;
-//			curr = curr->next;
-//			if (curr->next = NULL) {
-//				prev->next = NULL;
-//				list.tail = prev;
-//				free(curr);
-//
-//			}
-//		}
-//
-//	}
-//
-//
-//}
-//// return the value to be removed
-//int top(LList list) {
-//
-//}
-//// implementation of the queue using singly linked list
-//void enqueue(int value, LList list) {
-//
-//
-//}
-//int  dequeue(LList list) {
-//	if (list.head)
-//		printf("empty");
-//
-//}
-//int peek(LList list) {
-//
-//}
-//
+
+
+int pop(LList* list) {
+	NodePtr np = list->head;
+	if (list->head == NULL) {
+		//if the list is empty
+		printf("empty");
+	}
+	else {
+		printf("\nRemoved element : % d", list->head->num);
+		list->head = list->head->next;		
+		free(np);
+
+	}
+
+
+}
+// return the value to be removed
+int top(LList list) {
+
+}
+// implementation of the queue using singly linked list
+void enqueue(int value, LList list) {
+
+
+}
+int  dequeue(LList list) {
+	if (list.head)
+		printf("empty");
+
+}
+int peek(LList list) {
+
+}
+
 
 
