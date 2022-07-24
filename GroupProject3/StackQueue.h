@@ -38,17 +38,17 @@ LList* initLList() {
 //}
 void printList(LList* list) {
 	NodePtr np = list->head;
-	//if (list.head == NULL) {
-	//	printf("\nEmpty");
-	//}
-	//else {
-	printf("\nElements present in the Stack: \n");
+	if (list->head == NULL) {
+		printf("\nEmpty");
+	}
+	else {
+	printf("Elements present in the Stack: \n");
 	while (np != NULL) {
 		printf(" %d\n", np->num);
 		np = np->next;
 	}
-	/*printf("%d\n", list.head->num);*/
-//}
+	
+}
 
 }
 
@@ -108,8 +108,14 @@ int  dequeue(LList list) {
 		printf("empty");
 
 }
-int peek(LList list) {
+int peek(LList* list) {
 
+	if (list->head == NULL) {
+		printf("Empty");
+	}
+	else {
+		printf("The top element is %d", list->head->num);
+	}
 }
 
 
