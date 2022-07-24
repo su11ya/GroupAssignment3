@@ -1,6 +1,8 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <malloc.h>
+
 typedef struct node {
 	int num; // the data in this node of the list
 	struct node* next; // the pointer to the next node
