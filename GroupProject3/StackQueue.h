@@ -95,9 +95,15 @@ int pop(LList* list) {
 
 }
 // return the value to be removed
-int top(LList list) {
-
+int top(LList* list) {
+	if (list->head == NULL) {
+		printf("Empty");
+	}
+	else {
+		printf("Top element(the next element to be removed) is %d", list->head->num);
+	}
 }
+
 // implementation of the queue using singly linked list
 void enqueue(int value, LList list) {
 
@@ -108,14 +114,9 @@ int  dequeue(LList list) {
 		printf("empty");
 
 }
-int peek(LList* list) {
+int peek(LList list) {
 
-	if (list->head == NULL) {
-		printf("Empty");
-	}
-	else {
-		printf("Top element(the next element to be removed) is %d", list->head->num);
-	}
+
 }
 
 

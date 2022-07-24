@@ -18,7 +18,7 @@ int main() {
 	push(5, Stack);
 
 	printList(Stack);
-	peek(Stack);
+	top(Stack);
 	
 
 	//c)	Remove an element from stack
@@ -31,7 +31,7 @@ int main() {
 	//d)	Remove an element from queue
 	
 	//e)	Display the next element to be removed(do not remove) in the stack
-	peek(Stack);
+	top(Stack);
 
 	//f)	Display the next element to be removed(do not remove) in the queue.*/
 
