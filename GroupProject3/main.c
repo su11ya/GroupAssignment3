@@ -10,7 +10,7 @@ int main() {
 	 
 	
 	//b)	Add the following values 6, 7, 8, 2, 5  to the stack
-	LList* Stack = initLList();
+	LList Stack = initLList();
 	push(6, Stack);	
 	push(7, Stack);	
 	push(8, Stack);
@@ -40,3 +40,4 @@ int main() {
 
 }
 
+ 

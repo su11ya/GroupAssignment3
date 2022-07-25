@@ -12,7 +12,7 @@ typedef struct node {
 typedef struct llist {
 	NodePtr head;
 	NodePtr tail;
-} LList;
+} LListType, * LList;
 
 
 
@@ -23,9 +23,9 @@ NodePtr makeNode(int n) {
 	return np;
 }
 
-LList* initLList() {
+LList initLList() {
 	//LList list;
-	LList* list = (LList*)malloc(sizeof(struct llist));
+	LList list = (LList)malloc(sizeof(LListType));
 	list->head = NULL;
 	list->tail = NULL;
 	return list;
@@ -36,7 +36,7 @@ LList* initLList() {
 //	
 //
 //}
-void printList(LList* list) {
+void printList(LList list) {
 	NodePtr np = list->head;
 	if (list->head == NULL) {
 		printf("\nEmpty");
@@ -53,7 +53,7 @@ void printList(LList* list) {
 }
 
 // implementation of stack function 
-void push(int value, LList* list) {
+void push(int value, LList list) {
 	NodePtr np = makeNode(value);
 	if (list->head == NULL) {
 
@@ -79,7 +79,7 @@ void push(int value, LList* list) {
 
 
 
-int pop(LList* list) {
+int pop(LList list) {
 	NodePtr np = list->head;
 	if (list->head == NULL) {
 		//if the list is empty
@@ -95,7 +95,7 @@ int pop(LList* list) {
 
 }
 // return the value to be removed
-int top(LList* list) {
+int top(LList list) {
 	if (list->head == NULL) {
 		printf("Empty");
 	}
@@ -109,11 +109,11 @@ void enqueue(int value, LList list) {
 
 
 }
-int  dequeue(LList list) {
-	if (list.head)
-		printf("empty");
-
-}
+//int  dequeue(LList list) {
+//	if (list.head)
+//		printf("empty");
+//
+//}
 int peek(LList list) {
 
 
