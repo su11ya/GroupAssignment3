@@ -15,24 +15,8 @@ typedef struct llist {
 } LListType, * LList;
 
 
-
-//NodePtr makeNode(int n) {
-//	NodePtr np = (NodePtr)malloc(sizeof(Node));
-//	np->num = n;
-//	np->next = NULL;
-//	return np;
-//}
-
-//LList initLList() {
-//	//LList list;
-//	LList list = (LList)malloc(sizeof(LListType));
-//	list->head = NULL;
-//	list->tail = NULL;
-//	return list;
-//}
-
 /**
- * @brief print the stack
+ * @brief print the stack or queue
  * @param list 
 */
 void printList(LList list) {
@@ -41,7 +25,7 @@ void printList(LList list) {
 		printf("\nEmpty");
 	}
 	else {
-		printf("\nElements present in the Stack: \n");
+		
 		while (np != NULL) {
 			printf(" %d\n", np->num);
 			np = np->next;
@@ -59,7 +43,6 @@ void printList(LList list) {
  * @param list 
 */
 void push(int value, LList list) {
-	//NodePtr np = makeNode(value);
 	NodePtr np = (NodePtr)malloc(sizeof(Node));
 	np->num = value;
 	np->next = NULL;
@@ -72,24 +55,13 @@ void push(int value, LList list) {
 
 	}
 	list->head = np;
-
-	//insert back
-	/*NodePtr np = makeNode(value);
-	if (list->head== NULL) {
-		list->head = np;
-	}
-	else {
-		list->tail->next = np;
-	}
-	list->tail = np;
-	*/
 }
 
 
 /**
  * @brief remove an element from stack
  * @param list 
- * @return the element has been removed
+ * @return the element removed
 */
 int pop(LList list) {
 	NodePtr np = list->head;
@@ -121,17 +93,65 @@ int top(LList list) {
 }
 
 // implementation of the queue using singly linked list
-void enqueue(int value, LList list) {
 
+/**
+ * @brief add an element to queue
+ * @param value 
+ * @param list 
+*/
+void enqueue(int value, LList list) {
+	// allocate storage for new node
+	NodePtr np = (NodePtr)malloc(sizeof(Node));
+	np->num = value;
+	np->next = NULL;
+	// if empty queue, set head and tail point to it
+	if (list->head == NULL) {
+		list->head = np;
+		list->tail = np;
+	}
+	// if queue is not empty, add it to the tail of list
+	else {
+		list->tail->next = np;
+		list->tail = np;
+	}
 
 }
-//int  dequeue(LList list) {
-//	if (list.head)
-//		printf("empty");
-//
-//}
-int peek(LList list) {
 
+/**
+ * @brief remove an element from queue
+ * @param list 
+ * @return the element removed
+*/
+int  dequeue(LList list) {
+	// end the program if the queue if empty
+	if (list->head == NULL) {
+		printf("The queue is empty");
+		exit(1);
+	}
+	int hold = list->head->num;
+
+	printf("\nRemoved element from Queue: % d", hold);
+	NodePtr temp = list->head;
+	list->head = list->head->next;
+	// queue becomes empty if head is null after remove the head node
+	if (list->head == NULL)
+		list->tail = NULL;
+	free(temp);
+	return hold;
+}
+
+/**
+ * @brief display the top element in queque (the element to be removed)
+ * @param list 
+ * @return the top element in queue 
+*/
+int peek(LList list) {
+	if (list->head == NULL) {
+		printf("Queue is empty");
+	}
+	else {
+		printf("\nTop element(the next element to be removed) in Queue is %d", list->head->num);
+	}
 
 }
 
