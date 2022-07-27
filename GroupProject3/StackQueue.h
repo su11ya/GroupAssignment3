@@ -83,10 +83,10 @@ int pop(LList list) {
 	NodePtr np = list->head;
 	if (list->head == NULL) {
 		//if the list is empty
-		printf("empty");
+		printf("Stack is empty");
 	}
 	else {
-		printf("\nRemoved element : % d", list->head->num);
+		printf("\nRemoved element from Stack : % d", list->head->num);
 		list->head = list->head->next;		
 		free(np);
 
@@ -97,10 +97,10 @@ int pop(LList list) {
 // return the value to be removed
 int top(LList list) {
 	if (list->head == NULL) {
-		printf("Empty");
+		printf("Stack is empty");
 	}
 	else {
-		printf("Top element(the next element to be removed) is %d", list->head->num);
+		printf("Top element(the next element to be removed) in Stack is %d", list->head->num);
 	}
 }
 

@@ -10,7 +10,9 @@ int main() {
 	 
 	
 	//b)	Add the following values 6, 7, 8, 2, 5  to the stack
-	LList Stack = initLList();
+	LList Stack = (LList)malloc(sizeof(LListType));
+	Stack->head = NULL;
+	Stack->tail = NULL;
 	push(6, Stack);	
 	push(7, Stack);	
 	push(8, Stack);
@@ -18,15 +20,12 @@ int main() {
 	push(5, Stack);
 
 	printList(Stack);
-	top(Stack);
+	
 	
 
 	//c)	Remove an element from stack
 	pop(Stack);
-	printList(Stack);
-	pop(Stack);
-	printList(Stack);
-	
+	printList(Stack);	
 
 	//d)	Remove an element from queue
 	
