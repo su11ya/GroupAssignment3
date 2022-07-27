@@ -16,45 +16,53 @@ typedef struct llist {
 
 
 
-NodePtr makeNode(int n) {
-	NodePtr np = (NodePtr)malloc(sizeof(Node));
-	np->num = n;
-	np->next = NULL;
-	return np;
-}
-
-LList initLList() {
-	//LList list;
-	LList list = (LList)malloc(sizeof(LListType));
-	list->head = NULL;
-	list->tail = NULL;
-	return list;
-}
+//NodePtr makeNode(int n) {
+//	NodePtr np = (NodePtr)malloc(sizeof(Node));
+//	np->num = n;
+//	np->next = NULL;
+//	return np;
+//}
 
 //LList initLList() {
-//	LList np = (LList)malloc(sizeof(struct llist));
-//	
-//
+//	//LList list;
+//	LList list = (LList)malloc(sizeof(LListType));
+//	list->head = NULL;
+//	list->tail = NULL;
+//	return list;
 //}
+
+/**
+ * @brief print the stack
+ * @param list 
+*/
 void printList(LList list) {
 	NodePtr np = list->head;
 	if (list->head == NULL) {
 		printf("\nEmpty");
 	}
 	else {
-	printf("\nElements present in the Stack: \n");
-	while (np != NULL) {
-		printf(" %d\n", np->num);
-		np = np->next;
+		printf("\nElements present in the Stack: \n");
+		while (np != NULL) {
+			printf(" %d\n", np->num);
+			np = np->next;
+		}
+
 	}
-	
-}
 
 }
 
 // implementation of stack function 
+
+/**
+ * @brief add an element to stack
+ * @param value 
+ * @param list 
+*/
 void push(int value, LList list) {
-	NodePtr np = makeNode(value);
+	//NodePtr np = makeNode(value);
+	NodePtr np = (NodePtr)malloc(sizeof(Node));
+	np->num = value;
+	np->next = NULL;
 	if (list->head == NULL) {
 
 		list->tail = np;
@@ -78,7 +86,11 @@ void push(int value, LList list) {
 }
 
 
-
+/**
+ * @brief remove an element from stack
+ * @param list 
+ * @return the element has been removed
+*/
 int pop(LList list) {
 	NodePtr np = list->head;
 	if (list->head == NULL) {
@@ -87,14 +99,18 @@ int pop(LList list) {
 	}
 	else {
 		printf("\nRemoved element from Stack : % d", list->head->num);
-		list->head = list->head->next;		
+		list->head = list->head->next;
 		free(np);
 
 	}
 
-
 }
-// return the value to be removed
+
+/**
+ * @brief display the top element (the element to be removed)
+ * @param list 
+ * @return the element to be removed
+*/
 int top(LList list) {
 	if (list->head == NULL) {
 		printf("Stack is empty");
